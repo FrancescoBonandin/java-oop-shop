@@ -3,6 +3,9 @@ package org.lessons.java.shop;
 import java.util.Random;
 
 public class Prodotto {
+	
+		Random rnd = new Random();
+
 		
 		private int codice;
 		private String nome;
@@ -12,7 +15,7 @@ public class Prodotto {
 		
 		Prodotto( String nome, String descrizione, float prezzo, int iva){
 			
-			setCodice();
+			setCodice(rnd.nextInt(9_999_999));
 			setNome(nome);
 			setDescrizione(descrizione);
 			setPrezzo(prezzo);
@@ -26,13 +29,23 @@ public class Prodotto {
 		
 		}
 		
-		private  void setCodice() {
+		
+		// Setter post-correzione
+		private  void setCodice(int codice) {
 			
-			Random rnd = new Random();
-			
-			this.codice = rnd.nextInt(9_999_999);
+			this.codice = codice;
 		
 		}
+		
+		
+//		**concettualmente corretto, formalmente scorretto		
+//		private  void setCodice() {
+//			
+//			Random rnd = new Random();
+//			
+//			this.codice = rnd.nextInt(9_999_999);
+//		
+//		}
 		
 		public String getCodicePaddato() {
 			
